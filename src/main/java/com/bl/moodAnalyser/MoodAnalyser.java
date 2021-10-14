@@ -10,6 +10,10 @@ package com.bl.moodAnalyser;
 
 public class MoodAnalyser {
     public static String analyseMood(String message) {
-        return "Sad";
+        if (message.toLowerCase().contains("sad")) {
+            return "Sad";
+        }
+        return "Happy";
     }
 }
+
