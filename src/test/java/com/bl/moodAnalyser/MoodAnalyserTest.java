@@ -4,11 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MoodAnalyserTest {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue() {
-        Assert.assertTrue(true);
+    public void givenMessageWhenProperShouldReturnSad() {
+        MoodAnalyser moodanalyser = new MoodAnalyser("I am in Sad Mood");
+        String actualResult = moodanalyser.analyseMood();
+        Assert.assertEquals("Sad", actualResult);
     }
 }
