@@ -9,11 +9,13 @@ package com.bl.moodAnalyser;
  */
 
 public class MoodAnalyser {
-    private static String message;
+    public static String message;
 
+    public MoodAnalyser() {
+    }
 
     // Constructor
-    public MoodAnalyser(String message) {
+    public MoodAnalyser(String message) throws MoodAnalysisException {
         MoodAnalyser.message = message;
         analyseMood();
     }
@@ -28,7 +30,7 @@ public class MoodAnalyser {
         MoodAnalyser.message = message;
     }
 
-    public static String analyseMood() {
+    public static String analyseMood() throws MoodAnalysisException {
         try {
             if (message.toLowerCase().contains("sad")) {
                 return "Sad";
@@ -36,7 +38,7 @@ public class MoodAnalyser {
                 return "Happy";
             }
         } catch (NullPointerException e) {
-            return "Exception Handled";
+            throw new MoodAnalysisException("Entered Invalid mood");
         }
     }
 }
