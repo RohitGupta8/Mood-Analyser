@@ -9,11 +9,12 @@ package com.bl.moodAnalyser;
  */
 
 public class MoodAnalyser {
-    public String message;
+    private static String message;
+
 
     // Constructor
     public MoodAnalyser(String message) {
-        this.message = message;
+        MoodAnalyser.message = message;
         analyseMood();
     }
 
@@ -24,13 +25,18 @@ public class MoodAnalyser {
 
     //Setter
     public void setMessage(String message) {
-        this.message = message;
+        MoodAnalyser.message = message;
     }
 
-    public String analyseMood() {
-        if (message.toLowerCase().contains("sad")) {
-            return "Sad";
+    public static String analyseMood() {
+        try {
+            if (message.toLowerCase().contains("sad")) {
+                return "Sad";
+            } else {
+                return "Happy";
+            }
+        } catch (NullPointerException e) {
+            return "Exception Handled";
         }
-        return "Happy";
     }
 }
